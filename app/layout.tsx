@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Figtree from "next/font/local";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar";
 
 const fontSans = Figtree({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontMono.variable} antialiased`}
       >
-        {children}
+        <Sidebar>
+          {children}
+        </Sidebar>
       </body>
     </html>
   );
