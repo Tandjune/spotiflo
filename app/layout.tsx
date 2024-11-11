@@ -5,6 +5,8 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
+import ModalProvider from "@/providers/ModalProvider";
+import ToasterProvider from "@/providers/ToasterProvider";
 
 const fontSans = Figtree({
   src: "./fonts/GeistVF.woff",
@@ -32,8 +34,10 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontMono.variable} antialiased`}
       >
+        <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>
+            <ModalProvider />
             <Sidebar>
               {children}
             </Sidebar>
