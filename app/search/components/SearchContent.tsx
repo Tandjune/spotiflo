@@ -2,6 +2,8 @@
 
 import { Song } from "@/types";
 import MediaItem from "@/components/MediaItem";
+import LikeButton from "../../../components/LikeButton";
+import { useUser } from "@/hooks/useUser";
 
 interface SearchContentProps {
     songs: Song[];
@@ -11,7 +13,9 @@ const SearchContent: React.FC<SearchContentProps> = ({
     songs
 }) => {
 
-    if (songs.length == 0) {
+    const { user } = useUser(); //modified
+
+    if (!user || songs.length == 0) {
         return (
             <div
                 className="
@@ -40,7 +44,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
                             data={item}
                         />
                     </div>
-                    {/* {TODO: Add like Button Here} */}
+                    <LikeButton songId={item.id} />
                 </div>
             )}
         </div>
