@@ -2,23 +2,27 @@
 
 import { Song } from "@/types";
 import SongItem from "./SongItem";
+import useOnplay from "@/hooks/useOnPlay";
 
 interface PageContentProps {
     songs: Song[];
 }
- 
+
 const PageContent: React.FC<PageContentProps> = ({
     songs
 }) => {
-        if(songs.length === 0){
-            return (
-                <div className="mt-4 text-neutral-400">
+
+    const onPlay = useOnplay(songs);
+
+    if (songs.length === 0) {
+        return (
+            <div className="mt-4 text-neutral-400">
                 No songs available
-                </div>
-            );
-        }
-        return(
-            <div
+            </div>
+        );
+    }
+    return (
+        <div
             className="
               grid
               grid-cols-2
@@ -30,18 +34,18 @@ const PageContent: React.FC<PageContentProps> = ({
               gap-4
               mt-4
             "
-            >
-                {songs.map((item) => (
-                    <SongItem 
+        >
+            {songs.map((item) => (
+                <SongItem
                     key={item.id}
-                    onClick={() => {}}
+                    onClick={(id: string) => onPlay(id)}
                     data={item}
                 />
-                ))}
-                
+            ))}
 
-            </div>
-        );
+
+        </div>
+    );
 }
- 
+
 export default PageContent;
