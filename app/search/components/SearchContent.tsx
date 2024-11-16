@@ -1,9 +1,11 @@
 "use client"
 
+import { useUser } from "@/hooks/useUser";
+import useOnplay from "@/hooks/useOnPlay";
+
 import { Song } from "@/types";
 import MediaItem from "@/components/MediaItem";
 import LikeButton from "../../../components/LikeButton";
-import { useUser } from "@/hooks/useUser";
 
 interface SearchContentProps {
     songs: Song[];
@@ -12,6 +14,8 @@ interface SearchContentProps {
 const SearchContent: React.FC<SearchContentProps> = ({
     songs
 }) => {
+
+    const onPlay = useOnplay(songs);
 
     const { user } = useUser(); //modified
 
@@ -40,7 +44,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
                 >
                     <div className="flex-1">
                         <MediaItem
-                            onClick={() => { }}
+                            onClick={(id: string) => onPlay(id)}
                             data={item}
                         />
                     </div>
