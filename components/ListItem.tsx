@@ -8,9 +8,9 @@ import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
 interface ListItemProps {
-    image: string,
-    name: string,
-    href: string
+    image: string;
+    name: string;
+    href: string;
 }
 
 const ListItem: React.FC<ListItemProps> = ({
@@ -23,7 +23,7 @@ const ListItem: React.FC<ListItemProps> = ({
     const router = useRouter();
 
     const onClick = () => {
-        if(!user){                  //modified
+        if (!user) {                  //modified
             authModal.onOpen();     //modified
         }                           //modified
         router.push(href)
