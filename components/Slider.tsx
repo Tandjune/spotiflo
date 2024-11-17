@@ -50,6 +50,7 @@ const Slider: React.FC<SliderProps> = ({
                         "
                 />
             </RadixSlider.Track>
+			<RadixSlider.Thumb className=" block bg-none hover:bg-white disabled:fo focus:bg-white w-2.5 h-2.5 rounded-full" />
         </RadixSlider.Root>
     );
 }
