@@ -1,6 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { Audio } from "react-loader-spinner";
+import usePlayer from "@/hooks/usePlayer";
+
 import useLoadImage from "@/hooks/useLoadImage";
 import { Song } from "@/types";
 import PlayButton from "./PlayButton";
@@ -14,6 +17,8 @@ const SongItem: React.FC<SongItemProps> = ({
     onClick,
     data
 }) => {
+    const player = usePlayer();
+    const isPlaying = (player.activeId === data.id) && !player.paused;
 
     const imagePath = useLoadImage(data);
 
@@ -69,6 +74,9 @@ const SongItem: React.FC<SongItemProps> = ({
                 >
                     By {data.author}
                 </p>
+                <div className=" absolute bottom-[6px] right-3">
+                    <Audio height="30" width="10" color="#22c55e" visible={isPlaying} />
+                </div>
             </div>
             <div className="absolute bottom-24 right-5">
                 <PlayButton />
