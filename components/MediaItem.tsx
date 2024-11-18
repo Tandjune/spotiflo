@@ -1,19 +1,27 @@
 "use client"
 
+import { Audio } from "react-loader-spinner";
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
+
 import useLoadImage from "@/hooks/useLoadImage";
 import { Song } from "@/types";
+import usePlayer from "@/hooks/usePlayer";
 
 interface MediaItemProps {
     onClick: (id: string) => void;
-    data: Song,
+    data: Song;
+    className?: string
 }
 
 const MediaItem: React.FC<MediaItemProps> = ({
     onClick,
-    data
+    data,
+    className
 }) => {
+    const player = usePlayer();
     const imageUrl = useLoadImage(data);
+    const isPlaying = (player.activeId === data.id) && !player.paused;
 
     const handleclick = () => {
         if (onClick) {
@@ -34,6 +42,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
               w-full
               p-2
               rounded-md
+              relative
             "
         >
             <div
@@ -66,6 +75,9 @@ const MediaItem: React.FC<MediaItemProps> = ({
                 <p className=" text-neutral-400 text-sm truncate">
                     {data.author}
                 </p>
+            </div>
+            <div className={twMerge(` absolute bottom-[7px] right-3`, className)}>
+                <Audio height="30" width="10" color="#22c55e" visible={isPlaying} />
             </div>
         </div>
     );
