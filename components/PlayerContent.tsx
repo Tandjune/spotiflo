@@ -63,12 +63,18 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         songUrl,
         {
             volume: Volume,
-            onplay: () => setIsPlaying(true),
+            onplay: () => {
+                setIsPlaying(true);
+                player.setPaused(false);
+            },
             onend: () => {
                 setIsPlaying(false);
                 onPlayNext();
             },
-            onpause: () => setIsPlaying(false),
+            onpause: () => {
+                setIsPlaying(false);
+                player.setPaused(true);
+            },
             format: ['mp3']
         }
     );
@@ -119,7 +125,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                       gap-x-4
                     "
                 >
-                    <MediaItem data={song} onClick={() => { }} />
+                    <MediaItem data={song} onClick={() => { }} className=" hidden" />
                     <LikeButton songId={song.id} />
                 </div>
             </div>
