@@ -10,6 +10,7 @@ import MediaItem from "./MediaItem";
 import LikeButton from "./LikeButton";
 import Slider from "./Slider";
 import usePlayer from "@/hooks/usePlayer";
+import { twMerge } from "tailwind-merge";
 
 interface PlayerContentProps {
     song: Song;
@@ -28,6 +29,11 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const VolumeIcon = Volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
 
     const onPlayNext = () => {
+
+        if (player.paused) {
+            return;
+        }
+
         if (player.ids.length === 0) {
             return;
         }
@@ -43,6 +49,11 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     }
 
     const onPlayPrevious = () => {
+
+        if (player.paused) {
+            return;
+        }
+
         const length = player.ids.length;
 
         if (length === 0) {
@@ -173,12 +184,11 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 <AiFillStepBackward
                     onClick={onPlayPrevious}
                     size={30}
-                    className="
+                    className={twMerge(`
                       text-neutral-400
                       cursor-pointer
-                      hover:text-white
                       transition
-                    "
+                        `, !player.paused && "hover:text-white")}
                 />
                 <div
                     onClick={handlePlay}
@@ -199,12 +209,11 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 <AiFillStepForward
                     onClick={onPlayNext}
                     size={30}
-                    className="
+                    className={twMerge(`
                       text-neutral-400
                       cursor-pointer
-                      hover:text-white
                       transition
-                    "
+                        `, !player.paused && "hover:text-white")}
                 />
             </div>
 
