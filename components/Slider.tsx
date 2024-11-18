@@ -23,6 +23,7 @@ const Slider: React.FC<SliderProps> = ({
                   touch-none
                   w-full
                   h-10
+                  group
                 "
 
             defaultValue={[1]}
@@ -44,13 +45,13 @@ const Slider: React.FC<SliderProps> = ({
                 <RadixSlider.Range
                     className="
                           absolute
-                          bg-white
+                          group-hover:bg-white
                           rounded-full
                           h-full
                         "
                 />
             </RadixSlider.Track>
-			<RadixSlider.Thumb className=" block bg-none hover:bg-white disabled:fo focus:bg-white w-2.5 h-2.5 rounded-full" />
+			<RadixSlider.Thumb className=" block bg-none group-hover:bg-white disabled:fo focus:outline-none w-2.5 h-2.5 rounded-full" />
         </RadixSlider.Root>
     );
 }
