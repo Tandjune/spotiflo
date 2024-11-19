@@ -42,8 +42,6 @@ const PageContent: React.FC<PageContentProps> = ({
                     data={item}
                 />
             ))}
-
-
         </div>
     );
 }
