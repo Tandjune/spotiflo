@@ -28,7 +28,6 @@ const MediaItem: React.FC<MediaItemProps> = ({
             return onClick(data.id);
         }
 
-        //TODO: default turn on player
     }
     return (
         <div
