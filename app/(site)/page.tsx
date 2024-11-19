@@ -3,12 +3,14 @@ import ListItem from "@/components/ListItem";
 
 import getSongs from "@/actions/getSongs";
 import PageContent from "@/components/PageContent";
+import getSongsById from "@/actions/getSongsByUserId";
 
 export const revalidate = 0;
 
 export default async function Home() {
 
   const songs = await getSongs();
+  const userSongs = await getSongsById();
 
   return (
     <div className=" 
@@ -18,7 +20,7 @@ export default async function Home() {
     overflow-hidden 
     overflow-y-auto"
     >
-      <Header>
+      <Header userSongs={userSongs}>
         <div className="mb-2">
           <h1
             className="

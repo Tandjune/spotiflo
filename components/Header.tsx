@@ -7,31 +7,41 @@ import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { twMerge } from "tailwind-merge";
 import Button from "./Button";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { FaUserAlt } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { TbPlaylist } from "react-icons/tb";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
+import usePlayer from "@/hooks/usePlayer";
+import { useState } from "react";
+import { Song } from "@/types";
+import Library from "./Library";
 
 interface HeaderProps {
-    children: React.ReactNode,
-    className?: string
+    children: React.ReactNode;
+    className?: string;
+    userSongs?: Song[];
 }
 
 const Header: React.FC<HeaderProps> = ({
     children,
-    className
+    className,
+    userSongs
 }) => {
     const authModal = useAuthModal();
     const router = useRouter();
 
+    const [showLibrary, setShowLibrary] = useState(false);
+
     const supabaseClient = useSupabaseClient();
     const { user } = useUser();
 
+    const player = usePlayer()
 
     const handleLogout = async () => {
         const { error } = await supabaseClient.auth.signOut();
 
+        player.reset();
         router.refresh();
         if (error) {
             toast.error(error.message);
@@ -91,6 +101,7 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
                 <div className="flex md:hidden gap-x-2 items-center">
                     <button
+                        onClick={() => router.push('/')}
                         className="
                             flex
                             justify-center
@@ -105,6 +116,22 @@ const Header: React.FC<HeaderProps> = ({
                         <HiHome size={20} className=" text-black" />
                     </button>
                     <button
+                        onClick={() => setShowLibrary(!showLibrary)}
+                        className="
+                            flex
+                            justify-center
+                            items-center
+                            rounded-full
+                            p-2
+                            bg-white
+                            hover:opacity-75
+                            transition
+                            "
+                    >
+                        <TbPlaylist size={20} className=" text-black" />
+                    </button>
+                    <button
+                        onClick={() => router.push('/search')}
                         className="
                             flex
                             justify-center
@@ -134,12 +161,6 @@ const Header: React.FC<HeaderProps> = ({
                                 className=" bg-white px-6 py-2"
                             >
                                 Logout
-                            </Button>
-                            <Button
-                                onClick={() => router.push('/account')}
-                                className=" bg-white"
-                            >
-                                <FaUserAlt />
                             </Button>
                         </div>
                     ) :
@@ -174,7 +195,14 @@ const Header: React.FC<HeaderProps> = ({
                     }
                 </div>
             </div>
-            {children}
+            <div className="flex-col">
+                <div className="md:hidden bg-neutral-900 mb-4 rounded-xl max-h-[400px] overflow-auto">
+                    {showLibrary ? (<Library songs={userSongs ?? []} />) : <></>}
+                </div>
+                <div>
+                    {children}
+                </div>
+            </div>
         </div>
     );
 }
