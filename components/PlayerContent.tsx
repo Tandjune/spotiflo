@@ -117,15 +117,17 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         <div
             className="
               grid
-              grid-cols-2
-              md:grid-cols-3
+              grid-cols-1
+              sm:grid-cols-2
+              md:flex
               h-full
+              justify-between
             "
         >
             <div
                 className="
                   flex
-                  w-full
+                  max-w-[800px]
                   justify-start
                 "
             >
@@ -140,45 +142,17 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                     <LikeButton songId={song.id} />
                 </div>
             </div>
-            <div
-                className="
-                      flex
-                      md:hidden
-                      col-auto
-                      w-full
-                      justify-end
-                      items-center
-                    "
-            >
-                <div
-                    onClick={handlePlay}
-                    className="
-                          h-10
-                          w-10
-                          flex
-                          items-center
-                          justify-center
-                          rounded-full
-                          bg-white
-                          p-1
-                          cursor-pointer
-                        "
-                >
-                    <Icon size={30} className="text-black" />
-                </div>
-
-            </div>
 
             <div
                 className="
-                  hidden
                   h-full
-                  md:flex
+                  flex
                   justify-center
                   items-center
                   w-full
                   max-w-[722px]
                   gap-x-6
+                  pt-4
                 "
             >
                 <AiFillStepBackward
@@ -220,10 +194,11 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             <div
                 className="
                   hidden
-                  md:flex
-                  w-full
-                  justify-end
-                  pr-2
+                  sm:flex
+                  justify-start
+                  md:justify-end
+                  h-full
+                  max-w-[300px]
                 "
             >
                 <div
@@ -231,6 +206,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                       flex
                       items-center
                       gap-x-2
+                      py-4
                       w-[120px]
                     "
                 >
