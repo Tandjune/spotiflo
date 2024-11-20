@@ -23,9 +23,9 @@ const ListItem: React.FC<ListItemProps> = ({
     const router = useRouter();
 
     const onClick = () => {
-        if (!user) {                  //modified
-            authModal.onOpen();     //modified
-        }                           //modified
+        if (!user) {                            //modified
+            authModal.onOpen("sign_in");        //modified
+        }                                       //modified
         router.push(href)
     }
 
