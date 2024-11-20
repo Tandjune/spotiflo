@@ -13,7 +13,12 @@ const AuthModal = () => {
     const supabaseClient = useSupabaseClient();
     const router = useRouter();
     const { session } = useSessionContext();
-    const { onClose, isOpen } = useAuthModal();
+    const { onClose, isOpen, view } = useAuthModal();
+
+    const discription = view === "sign_up" ? "Create  account" : "Login to your account"
+    const title = view === "sign_up" ? "Welcome the new" : "Welcome back"
+
+
 
     useEffect(() => {
         if (session) {
@@ -30,8 +35,8 @@ const AuthModal = () => {
 
     return (
         <Modal
-            title="Welcome back"
-            description="Login to your account"
+            title={title}
+            description={discription}
             isOpen={isOpen}
             onChange={onChange}
         >
@@ -40,6 +45,7 @@ const AuthModal = () => {
                 magicLink
                 providers={["google"]}
                 supabaseClient={supabaseClient}
+                view={view == "sign_up" ? "sign_up" : "sign_in"}
                 appearance={{
                     theme: ThemeSupa,
                     variables: {

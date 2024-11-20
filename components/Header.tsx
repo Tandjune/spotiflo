@@ -50,10 +50,7 @@ const Header: React.FC<HeaderProps> = ({
         }
     }
 
-    const handleLogin = () => {
-        router.push('/')
-        authModal.onOpen
-    }
+
     return (
         <div
             className={twMerge(`
@@ -172,7 +169,7 @@ const Header: React.FC<HeaderProps> = ({
                         <>
                             <div>
                                 <Button
-                                    onClick={handleLogin}
+                                    onClick={() => authModal.onOpen("sign_up")}
                                     className=" 
                                     bg-transparent
                                     text-neutral-300
@@ -186,7 +183,7 @@ const Header: React.FC<HeaderProps> = ({
                             <div>
 
                                 <Button
-                                    onClick={authModal.onOpen}
+                                    onClick={() => authModal.onOpen("sign_in")}
                                     className=" 
                                     bg-white
                                     px-6
