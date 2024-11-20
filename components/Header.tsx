@@ -49,6 +49,11 @@ const Header: React.FC<HeaderProps> = ({
             toast.success('Logged out!')
         }
     }
+
+    const handleLogin = () => {
+        router.push('/')
+        authModal.onOpen
+    }
     return (
         <div
             className={twMerge(`
@@ -167,7 +172,7 @@ const Header: React.FC<HeaderProps> = ({
                         <>
                             <div>
                                 <Button
-                                    onClick={authModal.onOpen}
+                                    onClick={handleLogin}
                                     className=" 
                                     bg-transparent
                                     text-neutral-300
