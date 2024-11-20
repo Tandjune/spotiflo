@@ -24,7 +24,7 @@ const Player = () => {
               bg-black
               w-full
               py-2
-              h-[80px]
+              h-auto
               px-4
             "
         >
