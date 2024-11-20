@@ -3,12 +3,14 @@ import Image from "next/image";
 import getLikedSongs from "@/actions/getLikedSongs";
 import Header from "@/components/Header";
 import LikedContent from "./components/LikedContent";
+import getSongsById from "@/actions/getSongsByUserId";
 
 export const revalidate = 0;
 
 const Liked = async () => {
 
     const songs = await getLikedSongs();
+    const userSongs = await getSongsById();
 
     return (
         <div
@@ -21,7 +23,7 @@ const Liked = async () => {
               overflow-y-auto
             "
         >
-            <Header>
+            <Header userSongs={userSongs}>
                 <div className=" mt-20">
                     <div
                         className="
