@@ -15,8 +15,8 @@ const AuthModal = () => {
     const { session } = useSessionContext();
     const { onClose, isOpen, view } = useAuthModal();
 
-    const discription = view === "sign_up" ? "Create  account" : "Login to your account"
-    const title = view === "sign_up" ? "Welcome the new" : "Welcome back"
+    const discription = view === "sign_up" ? "Create an account" : "Login to your account"
+    const title = view === "sign_up" ? "Welcome" : "Welcome back"
 
 
 
