@@ -16,7 +16,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
 
     const onPlay = useOnplay(songs);
 
-    const { isLoading, user } = useUser();
+    const { user } = useUser();
 
     //modified
 
