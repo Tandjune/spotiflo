@@ -1,8 +1,5 @@
 "use client"
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-
 import { useUser } from "@/hooks/useUser";
 import useOnplay from "@/hooks/useOnPlay";
 import { Song } from "@/types";
@@ -19,7 +16,6 @@ const LikedContent: React.FC<LikedContentProps> = ({
 
     const onPlay = useOnplay(songs);
 
-    const router = useRouter();
     const { isLoading, user } = useUser();
 
     //modified
