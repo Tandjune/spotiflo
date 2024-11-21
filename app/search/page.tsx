@@ -4,16 +4,14 @@ import SearchContent from "@/app/search/components/SearchContent";
 import SearchInput from "@/components/SearchInput";
 import getSongsById from "@/actions/getSongsByUserId";
 
-interface SearchProps {
-    searchParams: {
-        title: string;
-    }
-};
+
+type searchParams = Promise<{title: string }> 
 
 export const revalidate = 0;
 
-const Search = async ({ searchParams }: SearchProps) => {
-    const songs = await getSongsByTitle(searchParams.title);
+const Search = async ({ searchParams }: {searchParams:searchParams}) => {
+    const {title} = await searchParams;
+    const songs = await getSongsByTitle(title);
     const userSongs = await getSongsById();
 
     return (
