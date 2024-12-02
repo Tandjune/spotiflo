@@ -1,7 +1,5 @@
 # Spotiflo
 
----
-
 ## Preview
 
 <img src="repo/bigscreen.png" alt="drawing" width="600"/> <img src="repo/smallscreen.png" alt="drawing" width="185"/>
