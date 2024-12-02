@@ -1,23 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Spotiflo
 
-## Getting Started
+---
 
-First, run the development server:
+## Preview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<img src="repo/bigscreen.png" alt="drawing" width="600"/> <img src="repo/smallscreen.png" alt="drawing" width="185" style="margin-left: 10px;"/>
 
 
+
+[go online](https://spotiflo.vercel.app/)
+
+## Description
+
+[**Spotiflo**](https://spotiflo.vercel.app/) is an online mp3 player that allows:
+
+- all users to play existing music on the platform.
+- users with an account:
+    - to create their own libraries .
+    - to add music to the list of favourites.
+
+## **Download and Installation**
+
+To use the source code, choose one of the following options to get started:
+
+- Clone the repo: `git clone https://github.com/Tandjune/spotiflo.git`
+- [Fork, Clone, or Download on GitHub](https://github.com/Tandjune/spotiflo)
+
+## Getting tarte
+
+[**Spotiflo**](https://spotiflo.vercel.app/)  is a Next.js project. After cloning the project the following commands can be used:
+
+- `npm run dev` to start Next.js in development mode.
+- `npm run build` to build the application for production usage.
+- `npm run start` to start a Next.js production server.
+- `npm run lint` to set up Next.js' built-in ESLint configuration.
+
+You must have npm installed globally on your machine in order to use these commands.
