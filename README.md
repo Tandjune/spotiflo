@@ -26,7 +26,7 @@ To use the source code, choose one of the following options to get started:
 - Clone the repo: `git clone https://github.com/Tandjune/spotiflo.git`
 - [Fork, Clone, or Download on GitHub](https://github.com/Tandjune/spotiflo)
 
-## Getting tarte
+## Getting started
 
 [**Spotiflo**](https://spotiflo.vercel.app/)  is a Next.js project. After cloning the project the following commands can be used:
 
