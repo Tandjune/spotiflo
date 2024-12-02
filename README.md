@@ -4,7 +4,7 @@
 
 ## Preview
 
-<img src="repo/bigscreen.png" alt="drawing" width="600"/> <img src="repo/smallscreen.png" alt="drawing" width="185" style="margin-left: 10px;"/>
+<img src="repo/bigscreen.png" alt="drawing" width="600"/> <img src="repo/smallscreen.png" alt="drawing" width="185" style="margin-left: 30px;"/>
 
 
 
