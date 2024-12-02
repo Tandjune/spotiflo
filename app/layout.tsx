@@ -22,7 +22,7 @@ const fontMono = Figtree({
 });
 
 export const metadata: Metadata = {
-  title: "Spotify Clone",
+  title: "Spotiflo",
   description: "Listen to music",
 };
 
