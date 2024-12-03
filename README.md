@@ -10,7 +10,7 @@
 
 ## Description
 
-[**Spotiflo**](https://spotiflo.vercel.app/) is an online mp3 player that allows:
+[**Spotiflo**](https://spotiflo.vercel.app/) is an online mp3 player inspired by spotify that allows:
 
 - all users to play existing music on the platform.
 - users with an account:
