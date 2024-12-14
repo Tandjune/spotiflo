@@ -14,8 +14,16 @@
 
 - all users to play existing music on the platform.
 - users with an account:
-    - to create their own libraries .
+    - to create their own libraries.
     - to add music to the list of favourites.
+
+### Built with
+This application has been built using the following technologies:
+
+- React, Next: for different front-end components
+- Tailwind: for styling
+- Supabase: for the database and storage.
+- Vercel: to deploy the application.
 
 ## **Download and Installation**
 
