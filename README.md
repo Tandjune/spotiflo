@@ -20,7 +20,7 @@
 ### Built with
 This application has been built using the following technologies:
 
-- React, Next: for different front-end components
+- React, Next: for different UI components
 - Tailwind: for styling
 - Supabase: for the database and storage.
 - Vercel: to deploy the application.
